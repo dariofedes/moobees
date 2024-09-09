@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyleSheet, Text, View, Image, StyleProp, ViewStyle } from 'react-native'
 import logo from '@assets/logo.png'
 
@@ -12,7 +11,7 @@ export default function Header({ style }: HeaderProps) {
 }
 
 type HeaderProps = {
-  style: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>
 }
 
 const header = StyleSheet.create({
