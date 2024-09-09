@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import Header from './src/Home/components/Header';
+import { Header } from './src/shared/components';
 
 function App(): React.JSX.Element {
   return (
