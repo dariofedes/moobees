@@ -1,14 +1,13 @@
-import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
-} from 'react-native';
+} from 'react-native'
 
-import { Header } from './src/shared/components';
+import { Header } from '@shared/components'
 
-function App(): React.JSX.Element {
+export default function App() {
   return (
     <SafeAreaView >
       <StatusBar />
@@ -16,7 +15,7 @@ function App(): React.JSX.Element {
         <Header style={app.header}/>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
 const app = StyleSheet.create({
@@ -26,7 +25,5 @@ const app = StyleSheet.create({
 
   header: {
 
-  }
-});
-
-export default App;
+  },
+})
