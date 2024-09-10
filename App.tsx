@@ -1,18 +1,18 @@
+import { useEffect, useState } from 'react'
 import {
+  Dimensions,
+  FlatList,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native'
-
-import { Header } from '@shared/components'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_KEY, API_URL } from '@env'
 import { MovieResult } from '@src/Movie/types'
 import LineMovie from '@src/Movie/components/LineMovie'
+import { Header } from '@shared/components'
+
+const width = Dimensions.get('window').width
 
 export default function App() {
   const [movies, setMovies] = useState<MovieResult[]>()
@@ -31,27 +31,31 @@ export default function App() {
   }, [])
 
   return (
-    <SafeAreaView >
+    <SafeAreaView>
       <StatusBar />
-      <ScrollView style={app.scrollable} contentInsetAdjustmentBehavior="automatic">
-        <Header style={app.header}/>
-        <View style={app.movieList}>
-          {movies && movies.map(movie => <LineMovie movie={movie} />)}
-        </View>
-      </ScrollView>
+      <Header style={app.header}/>
+      <FlatList
+        data={movies}
+        renderItem={({ item }) => <LineMovie movie={item} />}
+        keyExtractor={(item) => item.id.toString()}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        snapToInterval={width * 0.8}
+        decelerationRate="fast"
+        contentContainerStyle={app.carousel}
+      />
     </SafeAreaView>
   )
 }
 
 const app = StyleSheet.create({
-  scrollable: {
-    padding: 16,
+  carousel: {
+    paddingHorizontal: 16,
+    gap: 16,
   },
 
   header: {
-  },
-
-  movieList: {
-
+    paddingHorizontal: 16,
+    marginBottom: 16,
   },
 })
