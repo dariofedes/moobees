@@ -11,9 +11,10 @@ import { Header } from '@shared/components'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_KEY, API_URL } from '@env'
+import { MovieResult } from '@src/Movie/types'
 
 export default function App() {
-  const [movies, setMovies] = useState<[]>()
+  const [movies, setMovies] = useState<MovieResult[]>()
 
   useEffect(() => {
     (async () => {
