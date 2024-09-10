@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_KEY, API_URL } from '@env'
 import { MovieResult } from '@src/Movie/types'
+import LineMovie from '@src/Movie/components/LineMovie'
 
 export default function App() {
   const [movies, setMovies] = useState<MovieResult[]>()
@@ -35,7 +36,7 @@ export default function App() {
       <ScrollView style={app.scrollable} contentInsetAdjustmentBehavior="automatic">
         <Header style={app.header}/>
         <View style={app.movieList}>
-          {movies && movies.map(movie => <Text>{movie.title}</Text>)}
+          {movies && movies.map(movie => <LineMovie movie={movie} />)}
         </View>
       </ScrollView>
     </SafeAreaView>
