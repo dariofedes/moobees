@@ -1,14 +1,15 @@
-import { FlatList, StyleProp, ViewStyle, Dimensions, StyleSheet, View, Text, ActivityIndicator } from 'react-native'
+import { FlatList, StyleProp, ViewStyle, Dimensions, StyleSheet, View, ActivityIndicator } from 'react-native'
 import { MovieResult } from '../types'
 import LineMovie from './LineMovie'
 import { colors, textSize, spacing } from '@styles'
+import { H2 } from '@shared/components'
 
 const width = Dimensions.get('window').width
 
 export default function MovieList({ style, movies, title, isLoading, onNextPage }: MovieListProps) {
   return movies && (
     <View style={[movieList.wrapper, style]}>
-      <Text style={movieList.title}>{title}</Text>
+      <H2 style={movieList.title}>{title}</H2>
       <FlatList
         data={movies}
         renderItem={({ item }) => <LineMovie movie={item} />}

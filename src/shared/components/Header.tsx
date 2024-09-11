@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View, Image, StyleProp, ViewStyle } from 'react-native'
+import { StyleSheet, View, Image, StyleProp, ViewStyle } from 'react-native'
+import H1 from './H1'
+import { spacing, textSize } from '@styles';
 import logo from '@assets/logo.png'
+
 
 export default function Header({ style }: HeaderProps) {
   return (
     <View style={[header.wrapper, style]}>
       <Image source={logo} style={header.logo} />
-      <Text style={header.title}>Moobees</Text>
+      <H1 style={header.title}>Moobies</H1>
     </View>
   )
 }
@@ -18,16 +21,14 @@ const header = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: spacing.md,
   },
 
   logo: {
-    width: 32,
-    height: 32,
+    width: textSize.logo,
+    height: textSize.logo,
   },
 
   title: {
-    fontSize: 32,
-    fontWeight: '200',
   },
 })

@@ -1,7 +1,8 @@
-import { Image, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
+import { Image, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 import { MovieResult } from '../types'
-import Icon from 'react-native-vector-icons/AntDesign'
 import { colors, textSize, spacing } from '@styles'
+import { Rating } from '@shared/components'
+import { H3, P1 } from '@shared/components'
 
 export default function LineMovie({ style, movie }: LineMovieProps) {
   return(
@@ -11,14 +12,14 @@ export default function LineMovie({ style, movie }: LineMovieProps) {
       />
       <View style={lineMovie.details}>
         <View style={lineMovie.data}>
-          <Text style={lineMovie.title} numberOfLines={2} ellipsizeMode="tail">{movie.title}</Text>
-          <Text style={lineMovie.premiereDate}>{movie.release_date}</Text>
+          <H3 style={lineMovie.title} numberOfLines={2} ellipsizeMode="tail">{movie.title}</H3>
+          <P1 style={lineMovie.premiereDate}>{movie.release_date}</P1>
         </View>
-        <View style={[rating.wrapper, lineMovie.rating]}>
-          <Text style={rating.average}>{`${movie.vote_average.toFixed(1)}`}</Text>
-          <Icon style={rating.icon} name="star" size={textSize.body} color={colors.primary} />
-          <Text style={rating.votes}>{`(${movie.vote_count})`}</Text>
-        </View>
+        <Rating
+          style={lineMovie.rating}
+          average={movie.vote_average}
+          votes={movie.vote_count}
+        />
       </View>
     </View>
   )
@@ -56,36 +57,13 @@ const lineMovie = StyleSheet.create({
   },
 
   title: {
-    fontSize: textSize.h3,
-    color: colors.title,
   },
 
   premiereDate:{
-    fontSize: textSize.body,
+    fontSize: textSize.p1,
     color: colors.text,
   },
 
   rating: {
-  },
-})
-
-const rating = StyleSheet.create({
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-  },
-
-  average: {
-    fontSize: textSize.secondary,
-    color: colors.textDetails,
-  },
-
-  icon: {
-    marginRight: spacing.sm,
-  },
-
-  votes: {
-    fontSize: textSize.label,
-    color: colors.textDetails,
   },
 })
