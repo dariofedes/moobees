@@ -2,7 +2,7 @@ import { Alert, Image, StyleProp, StyleSheet, View, ViewStyle } from 'react-nati
 import { MovieResult } from '../types'
 import { H2, H3, P1, P2, Rating } from '@shared/components'
 import { usePoster } from '@shared/hooks'
-import { fonts, spacing } from '@styles'
+import { colors, fonts, spacing } from '@styles'
 import Button from '@shared/components/Button'
 
 export default function MovieDetails({ style, movie, genre }: MovieDetailsProps) {
@@ -18,7 +18,7 @@ export default function MovieDetails({ style, movie, genre }: MovieDetailsProps)
           style={movieDetails.poster}
         />
         <View style={movieDetails.info}>
-          <Button title="Add to wishlist" onPress={() => Alert.alert('will add to wishlist')} />
+          <Button style={{ ...movieDetails.addToWishlist, backgroundColor: colors[genre]}} title="Add to wishlist" onPress={() => Alert.alert('will add to wishlist')} />
           <P1 style={{ ...movieDetails.premiereDate, fontFamily }}>{movie.release_date}</P1>
           <Rating average={movie.vote_average} votes={movie.vote_count} />
         </View>

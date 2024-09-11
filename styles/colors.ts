@@ -4,6 +4,9 @@ const colors = {
   textDetails: '#555555',
   primary: '#fbd50b',
   lightBackground: '#FFFFFF',
+  action: '#5da0fc',
+  animation: '#bbfc95',
+  adventure: '#f7bd77',
 }
 
 export default colors
