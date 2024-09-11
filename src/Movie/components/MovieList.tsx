@@ -6,13 +6,13 @@ import { H2 } from '@shared/components'
 
 const width = Dimensions.get('window').width
 
-export default function MovieList({ style, movies, title, isLoading, onNextPage }: MovieListProps) {
+export default function MovieList({ style, movies, title, isLoading, onNextPage, onMoviePress }: MovieListProps) {
   return movies && (
     <View style={[movieList.wrapper, style]}>
       <H2 style={movieList.title}>{title}</H2>
       <FlatList
         data={movies}
-        renderItem={({ item }) => <LineMovie movie={item} />}
+        renderItem={({ item }) => <LineMovie movie={item} onPress={() => onMoviePress(item)} />}
         keyExtractor={(item) => item.id.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -33,6 +33,7 @@ type MovieListProps = {
   title: string,
   isLoading: boolean,
   onNextPage: Function,
+  onMoviePress?: Function,
 }
 
 const movieList = StyleSheet.create({

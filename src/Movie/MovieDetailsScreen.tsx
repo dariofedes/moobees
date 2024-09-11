@@ -5,6 +5,6 @@ export default function MovieDetailsScreen() {
   const { params }: any = useRoute()
 
   return (
-    <MovieDetails movie={params?.movie} />
+    <MovieDetails movie={params?.movie} genre={params?.genre} />
   )
 }

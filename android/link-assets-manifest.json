@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Handjet Regular.ttf",
+      "sha1": "5b0cf8be31ab6a324daa6f1e16dc30771e80384f"
+    },
+    {
+      "path": "assets/fonts/Nerko One Regular.ttf",
+      "sha1": "16497010793175991f7ebfecd21eb091b122b9e8"
+    },
+    {
+      "path": "assets/fonts/Oswald Regular.ttf",
+      "sha1": "06aae8f5a28908ba8eca0d5bdc01cedc2a184a5f"
+    }
+  ]
+}

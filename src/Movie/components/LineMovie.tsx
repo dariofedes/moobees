@@ -3,15 +3,13 @@ import { MovieResult } from '../types'
 import { colors, textSize, spacing } from '@styles'
 import { Rating } from '@shared/components'
 import { H3, P1 } from '@shared/components'
-import { useNavigation } from '@react-navigation/native'
 import { usePoster } from '@shared/hooks'
 
-export default function LineMovie({ style, movie }: LineMovieProps) {
-  const navigation = useNavigation()
+export default function LineMovie({ style, movie, onPress }: LineMovieProps) {
   const { getSmallPosterUrl } = usePoster()
 
   return(
-    <TouchableOpacity style={[lineMovie.wrapper, style]} onPress={() => navigation.navigate('Details', {movie})}>
+    <TouchableOpacity style={[lineMovie.wrapper, style]} onPress={() => onPress()}>
       <Image style={lineMovie.poster}
         source={{uri: getSmallPosterUrl(movie.poster_path)}}
       />
@@ -33,6 +31,7 @@ export default function LineMovie({ style, movie }: LineMovieProps) {
 type LineMovieProps = {
   style?: StyleProp<ViewStyle>,
   movie: MovieResult,
+  onPress: Function,
 }
 
 const lineMovie = StyleSheet.create({
