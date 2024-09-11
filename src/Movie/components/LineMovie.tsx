@@ -1,12 +1,15 @@
-import { Image, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
+import { Image, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native'
 import { MovieResult } from '../types'
 import { colors, textSize, spacing } from '@styles'
 import { Rating } from '@shared/components'
 import { H3, P1 } from '@shared/components'
+import { useNavigation } from '@react-navigation/native'
 
 export default function LineMovie({ style, movie }: LineMovieProps) {
+  const navigation = useNavigation()
+
   return(
-    <View style={[lineMovie.wrapper, style]}>
+    <TouchableOpacity style={[lineMovie.wrapper, style]} onPress={() => navigation.navigate('Details', {movie})}>
       <Image style={lineMovie.poster}
         source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
       />
@@ -21,7 +24,7 @@ export default function LineMovie({ style, movie }: LineMovieProps) {
           votes={movie.vote_count}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
