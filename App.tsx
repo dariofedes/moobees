@@ -3,20 +3,17 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native'
-import { Genre} from '@src/Genre/types'
 import { Header } from '@shared/components'
 import { spacing } from '@styles'
-import useGenres from '@src/Genre/useGenres'
-import { GenreMovieList } from '@src/Genre/components'
+import { GenreList } from '@src/Genre/components'
 
 export default function App() {
-  const { genres } = useGenres()
 
   return (
     <SafeAreaView>
       <StatusBar />
       <Header style={app.header}/>
-      {genres && genres.map((genre: Genre) => <GenreMovieList genre={genre} key={genre.id} />)}
+      <GenreList />
     </SafeAreaView>
   )
 }
@@ -27,6 +24,6 @@ const app = StyleSheet.create({
 
   header: {
     paddingHorizontal: spacing.lg,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xl,
   },
 })

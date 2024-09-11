@@ -8,7 +8,7 @@ export default function Header({ style }: HeaderProps) {
   return (
     <View style={[header.wrapper, style]}>
       <Image source={logo} style={header.logo} />
-      <H1 style={header.title}>Moobies</H1>
+      <H1 style={header.title}>Moobees</H1>
     </View>
   )
 }
