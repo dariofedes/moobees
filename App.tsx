@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import {
-  Dimensions,
-  FlatList,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -9,10 +7,9 @@ import {
 import axios from 'axios'
 import { API_KEY, API_URL } from '@env'
 import { MovieResult } from '@src/Movie/types'
-import LineMovie from '@src/Movie/components/LineMovie'
 import { Header } from '@shared/components'
-
-const width = Dimensions.get('window').width
+import MovieList from '@src/Movie/components/MovieList'
+import { spacing } from '@styles'
 
 export default function App() {
   const [movies, setMovies] = useState<MovieResult[]>()
@@ -34,28 +31,17 @@ export default function App() {
     <SafeAreaView>
       <StatusBar />
       <Header style={app.header}/>
-      <FlatList
-        data={movies}
-        renderItem={({ item }) => <LineMovie movie={item} />}
-        keyExtractor={(item) => item.id.toString()}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        snapToInterval={width * 0.8}
-        decelerationRate="fast"
-        contentContainerStyle={app.carousel}
-      />
+      {movies && <MovieList style={app.movieList} movies={movies} title={'Adventures'} />}
     </SafeAreaView>
   )
 }
 
 const app = StyleSheet.create({
-  carousel: {
-    paddingHorizontal: 16,
-    gap: 16,
+  movieList: {
   },
 
   header: {
-    paddingHorizontal: 16,
-    marginBottom: 16,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.lg,
   },
 })
