@@ -3,11 +3,11 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native'
-import { Genre} from '@src/Movie/types'
+import { Genre} from '@src/Genre/types'
 import { Header } from '@shared/components'
 import { spacing } from '@styles'
-import useGenres from '@src/Movie/useGenres'
-import GenreMovieList from '@src/Movie/components/GenreMovieList'
+import useGenres from '@src/Genre/useGenres'
+import { GenreMovieList } from '@src/Genre/components'
 
 export default function App() {
   const { genres } = useGenres()

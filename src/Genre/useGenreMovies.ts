@@ -1,7 +1,7 @@
 import { API_KEY, API_URL } from '@env';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { MovieResult } from './types';
+import { MovieResult } from '../Movie/types';
 
 export default function useGenreMovies(genreId: number) {
   const [movies, setMovies] = useState<MovieResult[]>()

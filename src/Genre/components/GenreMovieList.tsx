@@ -1,7 +1,7 @@
 import { StyleProp, ViewStyle } from 'react-native'
 import { Genre } from '../types'
 import useGenreMovies from '../useGenreMovies'
-import MovieList from './MovieList'
+import { MovieList } from '@src/Movie/components'
 
 export default function GenreMovieList({ style, genre }: GenreMovieListProps) {
   const { isLoading, movies, getNextPage } = useGenreMovies(genre.id)
