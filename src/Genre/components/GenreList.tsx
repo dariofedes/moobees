@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native'
 import useGenres from '../useGenres'
 import { Genre } from '../types'
 import GenreMovieList from './GenreMovieList'
-import { spacing } from '@styles'
+import spacing from '@styles/spacing'
 
 export default function GenreList() {
   const { genres } = useGenres()

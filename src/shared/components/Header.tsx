@@ -20,8 +20,10 @@ type HeaderProps = {
 const header = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     gap: spacing.md,
+    marginBottom: spacing.lg,
   },
 
   logo: {
