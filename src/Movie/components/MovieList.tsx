@@ -1,12 +1,12 @@
-import { FlatList, StyleProp, ViewStyle, Dimensions, StyleSheet, View, Text } from 'react-native'
+import { FlatList, StyleProp, ViewStyle, Dimensions, StyleSheet, View, Text, ActivityIndicator } from 'react-native'
 import { MovieResult } from '../types'
 import LineMovie from './LineMovie'
 import { colors, textSize, spacing } from '@styles'
 
 const width = Dimensions.get('window').width
 
-export default function MovieList({ style, movies, title }: MovieListProps) {
-  return (
+export default function MovieList({ style, movies, title, isLoading, onNextPage }: MovieListProps) {
+  return movies && (
     <View style={[movieList.wrapper, style]}>
       <Text style={movieList.title}>{title}</Text>
       <FlatList
@@ -18,6 +18,9 @@ export default function MovieList({ style, movies, title }: MovieListProps) {
         snapToInterval={width * 0.8}
         decelerationRate="fast"
         contentContainerStyle={movieList.carousel}
+        onEndReached={() => onNextPage()}
+        onEndReachedThreshold={2}
+        ListFooterComponent={isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : null}
       />
     </View>
   )
@@ -26,7 +29,9 @@ export default function MovieList({ style, movies, title }: MovieListProps) {
 type MovieListProps = {
   style?: StyleProp<ViewStyle>,
   movies: MovieResult[],
-  title: string
+  title: string,
+  isLoading: boolean,
+  onNextPage: Function,
 }
 
 const movieList = StyleSheet.create({
