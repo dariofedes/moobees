@@ -7,6 +7,7 @@ const textSize = {
   label: 12,
   logo: 40,
   icon: 16,
+  button: 18,
 }
 
 export default textSize

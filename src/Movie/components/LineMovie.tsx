@@ -4,14 +4,16 @@ import { colors, textSize, spacing } from '@styles'
 import { Rating } from '@shared/components'
 import { H3, P1 } from '@shared/components'
 import { useNavigation } from '@react-navigation/native'
+import { usePoster } from '@shared/hooks'
 
 export default function LineMovie({ style, movie }: LineMovieProps) {
   const navigation = useNavigation()
+  const { getSmallPosterUrl } = usePoster()
 
   return(
     <TouchableOpacity style={[lineMovie.wrapper, style]} onPress={() => navigation.navigate('Details', {movie})}>
       <Image style={lineMovie.poster}
-        source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
+        source={{uri: getSmallPosterUrl(movie.poster_path)}}
       />
       <View style={lineMovie.details}>
         <View style={lineMovie.data}>
