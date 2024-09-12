@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '@src/Home/HomeScreen';
-import { colors } from '@styles';
 import MovieDetailsScreen from '@src/Movie/MovieDetailsScreen';
+import { colors } from '@styles';
 
 const Stack = createNativeStackNavigator()
 
