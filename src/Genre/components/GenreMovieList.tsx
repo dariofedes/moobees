@@ -1,12 +1,12 @@
 import { StyleProp, ViewStyle } from 'react-native'
 import { Genre } from '../types'
-import useGenreMovies from '../useGenreMovies'
+import useGenreMovieList from '../useGenreMovieList'
 import { MovieList } from '@src/Movie/components'
 import { useNavigation } from '@react-navigation/native'
 import { MovieResult } from '@src/Movie/types'
 
 export default function GenreMovieList({ style, genre }: GenreMovieListProps) {
-  const { isLoading, movies, getNextPage } = useGenreMovies(genre.id)
+  const { isLoading, movies, getNextPage } = useGenreMovieList(genre.id)
   const navigation = useNavigation()
 
   return movies && (

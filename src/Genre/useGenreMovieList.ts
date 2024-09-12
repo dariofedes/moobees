@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { MovieResult } from '../Movie/types';
 
-export default function useGenreMovies(genreId: number) {
+export default function useGenreMovieList(genreId: number) {
   const [movies, setMovies] = useState<MovieResult[]>()
   const [page, setPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)

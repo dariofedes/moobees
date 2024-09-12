@@ -1,7 +1,5 @@
-import GenreList from './GenreList';
-import GenreMovieList from './GenreMovieList';
+import GenreMovieList from '../../Genre/components/GenreMovieList'
 
 export {
-  GenreList,
   GenreMovieList,
 }
