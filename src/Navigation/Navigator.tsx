@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import GenreListScreen from '@src/Genre/GenreListScree';
+import HomeScreen from '@src/Genre/GenreListScree';
 import { colors } from '@styles';
 import MovieDetailsScreen from '@src/Movie/MovieDetailsScreen';
 
@@ -16,7 +16,7 @@ const Navigator = () => {
           },
         }}
       >
-        <Stack.Screen name="Home" component={GenreListScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={MovieDetailsScreen} />
       </Stack.Navigator>
   )

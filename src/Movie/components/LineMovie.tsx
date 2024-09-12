@@ -4,8 +4,11 @@ import { colors, textSize, spacing } from '@styles'
 import { Rating } from '@shared/components'
 import { H3, P1 } from '@shared/components'
 import { usePoster } from '@shared/hooks'
+import Icon from 'react-native-vector-icons/AntDesign'
+import useWishlist from '@src/Wishlist/useWishlist'
 
 export default function LineMovie({ style, movie, onPress }: LineMovieProps) {
+  const { isMovieInWishlist } = useWishlist()
   const { getSmallPosterUrl } = usePoster()
 
   return(
@@ -24,6 +27,7 @@ export default function LineMovie({ style, movie, onPress }: LineMovieProps) {
           votes={movie.vote_count}
         />
       </View>
+      {isMovieInWishlist(movie.id) && <Icon name="heart" size={textSize.icon} style={lineMovie.isInWishlist} />}
     </TouchableOpacity>
   )
 }
@@ -69,5 +73,11 @@ const lineMovie = StyleSheet.create({
   },
 
   rating: {
+  },
+
+  isInWishlist: {
+    position: 'absolute',
+    bottom: 8,
+    right: 8,
   },
 })

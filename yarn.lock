@@ -4771,6 +4771,11 @@ react-shallow-renderer@^16.15.0:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
 
+react-singleton-hook@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/react-singleton-hook/-/react-singleton-hook-4.0.1.tgz"
+  integrity sha512-fWuk8VxcZPChrkQasDLM8pgd/7kyi+Cr/5FfCiD99FicjEru+JmtEZNnN4lJ8Z7KbqAST5CYPlpz6lmNsZFGNw==
+
 react-test-renderer@>=16.0.0, react-test-renderer@>=16.8.0, react-test-renderer@18.3.1:
   version "18.3.1"
   dependencies:
@@ -4778,7 +4783,7 @@ react-test-renderer@>=16.0.0, react-test-renderer@>=16.8.0, react-test-renderer@
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.2"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@^18.3.1, "react@>= 16.8.0", react@>=16.0.0, react@>=16.8, react@>=16.8.0, react@>=17.0.0, react@18.3.1:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@^18.3.1, "react@>= 16.8.0", react@>=16.0.0, react@>=16.8, react@>=16.8.0, react@>=17.0.0, react@18, react@18.3.1:
   version "18.3.1"
   dependencies:
     loose-envify "^1.1.0"

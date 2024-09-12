@@ -1,7 +1,7 @@
-import { API_KEY, API_URL } from '@env';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Genre } from '../Movie/types';
+import { API_KEY, API_URL } from '@env'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Genre } from './types'
 
 export default function useGenres() {
   const [genres, setGenres] = useState<Genre[]>()
